@@ -1,4 +1,4 @@
-# 🚦 Real-Time Speed Traffic Sign Recognition System on AMD/Xilinx Kria KR260
+# Real-Time Speed Traffic Sign Recognition System on AMD/Xilinx Kria KR260
 
 [![Hardware](https://img.shields.io/badge/Hardware-AMD%2fXilinx%20Kria%20KR260-blue)](https://www.xilinx.com/products/som/kria/kr260-robotics-starter-kit.html)
 [![Vitis AI](https://img.shields.io/badge/Vitis%20AI-v3.0-green)](https://github.com/Xilinx/Vitis-AI)
