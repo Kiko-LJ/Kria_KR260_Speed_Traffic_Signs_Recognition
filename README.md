@@ -16,7 +16,7 @@ The system utilizes a custom **YOLOv5** model trained on speed limit traffic sig
 * **Edge AI Acceleration:** Deployed on DPU B4096 architecture achieving high-throughput real-time inference.
 * **Computer Vision Pipeline:** Asynchronous frame capture and display using OpenCV and Python VART (Vitis AI Runtime) APIs.
 * **Custom Firmware Overlay:** Dynamically loadable hardware overlay managed via `xmutil`.
-* **Multi-Class Detection:** Detects and classifies speed limit signs (30, 50, 80, 100, and 120 km/h).
+* **Multi-Class Detection:** Detects and classifies speed limit signs (20, 30, 40, 50, 60, 70, 80, 90, 100, and 120 km/h).
 
 ---
 
@@ -24,8 +24,8 @@ The system utilizes a custom **YOLOv5** model trained on speed limit traffic sig
 
 ```text
 .
-├── kr260-dpu-trd-b4096-gpio/   # PetaLinux firmware overlay (.bit, .dtbo, shell.json)
-├── inference/                  # Compiled INT8 model (.xmodel) & Python VART inference script
-├── vivado_design/              # Complete Vivado project tree & DPU IP hardware sources
+├── kr260-dpu-trd-b4096-gpio/   # PetaLinux firmware (.bit, .dtbo, shell.json)
+├── inference/                  # Compiled INT8 model (.xmodel) and Python VART inference script
+├── vivado_design/              # Complete Vivado project and DPU IP hardware sources
 ├── assets/                     # Images, diagrams, and benchmarks used in this README
 └── README.md                   # Main documentation
