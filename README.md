@@ -28,7 +28,7 @@ The system utilizes a custom **YOLOv5** model trained on speed limit traffic sig
 ├── inference/                  # Compiled INT8 model (.xmodel) and Python VART inference script
 ├── vivado_design/              # Vivado project documentation & external download link
 │   └── README.md               # Instructions and link to download heavy Vivado sources
-├── assets/                     # Images, diagrams, and benchmarks used in this README
+├── vitisAI/                    # Vitis AI files mentioned in the project (arch file and quantization)
 └── README.md                   # Main documentation
 ```
 
