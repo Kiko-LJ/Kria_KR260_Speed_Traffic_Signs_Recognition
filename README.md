@@ -26,10 +26,8 @@ The system utilizes a custom **YOLOv5** model trained on speed limit traffic sig
 .
 ├── kr260-dpu-trd-b4096-gpio/   # PetaLinux firmware (.bit, .dtbo, shell.json)
 ├── inference/                  # Compiled INT8 model (.xmodel) and Python VART inference script
-├── vivado_design/              # Hardware design files and DPU IP repository
-│   ├── app/                    # Application examples (e.g., resnet50)
-│   ├── dpu_ip/                 # Custom DPU IP core files and definitions
-│   └── prj/                    # Main Vivado project workspace (.xpr, block design)
+├── vivado_design/              # Vivado project documentation & external download link
+│   └── README.md               # Instructions and link to download heavy Vivado sources
 ├── assets/                     # Images, diagrams, and benchmarks used in this README
 └── README.md                   # Main documentation
 
