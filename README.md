@@ -26,6 +26,90 @@ The system utilizes a custom **YOLOv5** model trained on speed limit traffic sig
 .
 ├── kr260-dpu-trd-b4096-gpio/   # PetaLinux firmware (.bit, .dtbo, shell.json)
 ├── inference/                  # Compiled INT8 model (.xmodel) and Python VART inference script
-├── vivado_design/              # Complete Vivado project and DPU IP hardware sources
+├── vivado_design/              # Hardware design files and DPU IP repository
+│   ├── app/                    # Application examples (e.g., resnet50)
+│   ├── dpu_ip/                 # Custom DPU IP core files and definitions
+│   └── prj/                    # Main Vivado project workspace (.xpr, block design)
 ├── assets/                     # Images, diagrams, and benchmarks used in this README
 └── README.md                   # Main documentation
+
+---
+
+### Folder Breakdown:
+1. **`kr260-dpu-trd-b4096-gpio/`**: Contains the generated hardware overlay files required by PetaLinux to configure the FPGA logic on the fly.
+2. **`inference/`**: Houses the final compiled `yolov5_kr260.xmodel` file along with the Python inference scripts for video processing and bounding box rendering.
+3. **`vivado_design/`**: Hardware design workspace structured as follows:
+   * **`app/`**: Sample applications and reference scripts (e.g., `resnet50`).
+   * **`dpu_ip/`**: Sources, IP catalog files, and configuration files for the DPU IP core.
+   * **`prj/`**: Complete Vivado project tree including the block design, PS configuration, and synthesis/implementation sources.
+4. **`assets/`**: Images, system architecture diagrams, and demonstration screenshots.
+
+---
+
+## 🛠️ Hardware & Software Requirements
+
+### Hardware
+* **Board:** AMD/Xilinx Kria KR260 Robotics Starter Kit
+* **Camera:** USB Webcam
+* **Display:** Monitor connected via DisplayPort
+* **Connections:** Micro-USB cable (for UART serial console) & 12V Power Adapter
+
+### Software & Environment
+* **OS:** PetaLinux (custom build for Kria KR260)
+* **AI Framework:** Vitis AI 3.0 (VART Python API)
+* **Libraries:** OpenCV, NumPy
+
+---
+
+## 🚀 Quick Start Guide
+
+### 1. Hardware Setup
+1. Insert the MicroSD card loaded with the PetaLinux image into the Kria KR260.
+2. Connect the **USB Webcam** to one of the USB 3.0 ports.
+3. Connect the **Monitor** to the DisplayPort connector.
+4. Connect the **Micro-USB cable** from the Kria UART port to your Host PC.
+5. Power on the board.
+
+### 2. Connect via UART Serial Terminal
+Open a serial terminal on your host machine (e.g., PuTTY or `picocom`) at **115200 baud rate**:
+
+```bash
+picocom -b 115200 /dev/ttyUSB1
+```
+
+Log in using credentials:
+* **Username:** `petalinux`
+* **Password:** *(Set or enter your password)*
+
+### 3. Copy and Load Firmware Overlay
+Transfer the `kr260-dpu-trd-b4096-gpio` folder to `/lib/firmware/xilinx/` on the board.
+
+Unload any active app and load the custom DPU firmware:
+
+```bash
+# Unload current app
+sudo xmutil unloadapp
+
+# Load the DPU firmware overlay
+sudo xmutil loadapp kr260-dpu-trd-b4096-gpio
+```
+
+### 4. Run Real-Time Inference
+Navigate to the `inference/` folder and execute the Python script:
+
+```bash
+cd /path/to/inference
+sudo python3 inferencia_gpio_mod.py
+```
+
+*The real-time video feed with bounding box detections will be displayed on the screen connected via DisplayPort.*
+
+---
+
+## 📄 License
+
+This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)**.
+
+You are free to share and adapt the material for non-commercial, academic, or research purposes, provided appropriate credit is given. **Commercial use is strictly prohibited without explicit permission from the author.**
+
+---
