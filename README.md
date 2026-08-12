@@ -1,4 +1,4 @@
-# Real-Time Speed Traffic Sign Recognition System on AMD/Xilinx Kria KR260
+# 🚦 Real-Time Speed Traffic Sign Recognition System on AMD/Xilinx Kria KR260
 
 [![Hardware](https://img.shields.io/badge/Hardware-AMD%2fXilinx%20Kria%20KR260-blue)](https://www.xilinx.com/products/som/kria/kr260-robotics-starter-kit.html)
 [![Vitis AI](https://img.shields.io/badge/Vitis%20AI-v3.0-green)](https://github.com/Xilinx/Vitis-AI)
@@ -30,16 +30,12 @@ The system utilizes a custom **YOLOv5** model trained on speed limit traffic sig
 │   └── README.md               # Instructions and link to download heavy Vivado sources
 ├── assets/                     # Images, diagrams, and benchmarks used in this README
 └── README.md                   # Main documentation
-
----
+```
 
 ### Folder Breakdown:
 1. **`kr260-dpu-trd-b4096-gpio/`**: Contains the generated hardware overlay files required by PetaLinux to configure the FPGA logic on the fly.
-2. **`inference/`**: Houses the final compiled `yolov5_kr260.xmodel` file along with the Python inference scripts for video processing and bounding box rendering.
-3. **`vivado_design/`**: Hardware design workspace structured as follows:
-   * **`app/`**: Sample applications and reference scripts (e.g., `resnet50`).
-   * **`dpu_ip/`**: Sources, IP catalog files, and configuration files for the DPU IP core.
-   * **`prj/`**: Complete Vivado project tree including the block design, PS configuration, and synthesis/implementation sources.
+2. **`inference/`**: Houses the final compiled `yolov5_kr260.xmodel` file along with the Python inference script (`inferencia_gpio_mod.py`) for video processing and bounding box rendering.
+3. **`vivado_design/`**: Contains a `README.md` with an external download link for the full Vivado project workspace (`prj/`), DPU IP core (`dpu_ip/`), and sample apps (`app/`), omitted directly from Git due to file size constraints.
 4. **`assets/`**: Images, system architecture diagrams, and demonstration screenshots.
 
 ---
@@ -48,7 +44,7 @@ The system utilizes a custom **YOLOv5** model trained on speed limit traffic sig
 
 ### Hardware
 * **Board:** AMD/Xilinx Kria KR260 Robotics Starter Kit
-* **Camera:** USB Webcam
+* **Camera:** USB Webcam (UVC compliant)
 * **Display:** Monitor connected via DisplayPort
 * **Connections:** Micro-USB cable (for UART serial console) & 12V Power Adapter
 
@@ -109,5 +105,3 @@ sudo python3 inferencia_gpio_mod.py
 This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)**.
 
 You are free to share and adapt the material for non-commercial, academic, or research purposes, provided appropriate credit is given. **Commercial use is strictly prohibited without explicit permission from the author.**
-
----
