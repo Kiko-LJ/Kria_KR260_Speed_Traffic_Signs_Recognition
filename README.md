@@ -33,7 +33,7 @@ The system utilizes a custom **YOLOv5** model trained on speed limit traffic sig
 ```
 
 ### Folder Breakdown:
-1. **`kr260-dpu-trd-b4096-gpio/`**: Contains the generated hardware overlay files required by PetaLinux to configure the FPGA logic on the fly.
+1. **`kr260-dpu-trd-b4096-gpio/`**: Contains the generated hardware overlay files required by PetaLinux to configure the FPGA logic.
 2. **`inference/`**: Houses the final compiled `yolov5_kr260.xmodel` file along with the Python inference script (`inferencia_gpio_mod.py`) for video processing and bounding box rendering.
 3. **`vivado_design/`**: Contains a `README.md` with an external download link for the full Vivado project workspace (`prj/`), DPU IP core (`dpu_ip/`), and sample apps (`app/`), omitted directly from Git due to file size constraints.
 4. **`vitisAI/`**: Contains files mentioned in the project related to VitisAI, such as arch file and quantization file.
